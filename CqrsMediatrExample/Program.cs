@@ -1,4 +1,5 @@
 using CqrsMediatrExample;
+using CqrsMediatrExample.Behaviour;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddSingleton<FakeDataStore>();//gonna use fakedatasore thread-safe accross project
-builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(IPipelineBehavior<,>));
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
 var app = builder.Build();
 
