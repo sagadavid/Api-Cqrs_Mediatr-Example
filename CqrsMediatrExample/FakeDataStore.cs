@@ -27,6 +27,13 @@ namespace CqrsMediatrExample
         public async Task<Product> GetProductById(int id) =>
             await Task.FromResult(_products.Single(p => p.Id == id));
 
+        //notification
+        public async Task EventOccured(Product product, string evnt)
+        {
+            _products.Single(p => p.Id == product.Id).Name = $"{product.Name} evnt : {evnt}";
+            await Task.CompletedTask;
+        }
+
 
     }
 }

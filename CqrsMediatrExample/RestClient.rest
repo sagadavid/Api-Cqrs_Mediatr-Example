@@ -1,6 +1,11 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 #
 GET https://localhost:5001/api/products
-# Status code: OK (200)
 ###
+get https://localhost:5001/api/products/3
+###
+POST https://localhost:5001/api/products
+
+{"id":"33",
+"name":"kareoke"}
 
