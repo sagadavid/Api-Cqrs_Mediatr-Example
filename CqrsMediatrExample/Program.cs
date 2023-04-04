@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddSingleton<FakeDataStore>();//gonna use fakedatasore thread-safe accross project
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(IPipelineBehavior<,>));
 
 var app = builder.Build();
 
